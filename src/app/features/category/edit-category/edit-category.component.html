@@ -1,0 +1,26 @@
+<div class="container">
+  <ng-container *ngIf="category; else notFound" >
+
+    <form #form="ngForm" (ngSubmit)="onFormSubmit()">
+      <div>
+        <label for="Id" class="form-label">Id</label>
+        <input type="text" class="form-control" disabled id="categoryId" name="categoryId" [(ngModel)]="category.id">
+      </div>
+      <div>
+        <label for="categoryName" class="form-label">Name</label>
+        <input type="text" class="form-control"  id="categoryName" name="categoryName" [(ngModel)]="category.name">
+      </div>
+      <div>
+        <label for="urlHandle" class="form-label">Url Handle</label>
+        <input type="text" class="form-control"  id="urlHandle" name="urlHandle" [(ngModel)]="category.urlHandle">
+      </div>
+      <button class="btn btn-primary mt-3">Güncelle</button>
+      <button class="btn btn-danger mt-3 ms-3" (click)="OnDelete()">Delete Category</button>
+    </form>
+  </ng-container>
+  <ng-template #notFound>
+    <div class="alert alert-warning " role="alert">
+      This category not found!
+    </div>
+  </ng-template>
+</div>
